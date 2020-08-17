@@ -29,8 +29,8 @@ const SplashScreen = props => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../Image/aboutreact.png')}
-        style={{ width: '90%', resizeMode: 'contain', margin: 30 }}
+        source={require('../Image/intro3.png')}
+        style={{ width: '100%', resizeMode: 'contain' ,height:'100%'}}
       />
       <ActivityIndicator
         animating={animating}
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#307ecc',
+    // backgroundColor: '#307ecc',
   },
   activityIndicator: {
     alignItems: 'center',
