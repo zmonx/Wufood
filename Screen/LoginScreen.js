@@ -76,20 +76,19 @@ const LoginScreen = props => {
 
   return (
     <View style={styles.mainBody}>
-      <Image style= { styles.backgroundImage } source={require('../Image/bangkok.jpg')}>
-      </Image>
       <Loader loading={loading} />
       <ScrollView keyboardShouldPersistTaps="handled">
         <View style={{ marginTop: 100 }}>
           <KeyboardAvoidingView enabled>
             <View style={{ alignItems: 'center' }}>
               <Image
-                source={require('../Image/aboutreact.png')}
+                source={require('../Image/logo2.png')}
                 style={{
-                  width: '50%',
-                  height: 100,
-                  resizeMode: 'contain',
-                  margin: 30,
+                  paddingTop: -30,
+                //   width: '50%',
+                //   height: '50%',
+                //   // resizeMode: 'contain', 
+                //   // margin: 30,
                 }}
               />
             </View>
@@ -140,7 +139,8 @@ const LoginScreen = props => {
             <Text
               style={styles.registerTextStyle}
               onPress={() => props.navigation.navigate('RegisterScreen')}>
-              New Here ? Register
+              New Here ? 
+              Register
             </Text>
           </KeyboardAvoidingView>
         </View>
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
   mainBody: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#307ecc',
+    backgroundColor: '#cb7cba',
   },
   SectionStyle: {
     flexDirection: 'row',
@@ -165,9 +165,9 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: '#7DE24E',
+    backgroundColor: '#FFFFFF',
     borderWidth: 0,
-    color: '#FFFFFF',
+    color: '#9900cc',
     borderColor: '#7DE24E',
     height: 40,
     alignItems: 'center',
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonTextStyle: {
-    color: '#FFFFFF',
+    color: '#9900cc',
     paddingVertical: 10,
     fontSize: 16,
   },
@@ -202,10 +202,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14,
   },
-  backgroundImage: {
-    flex: 1,
-    alignSelf: 'stretch',
-    width: null,
-    height: null,
-  }
 });
