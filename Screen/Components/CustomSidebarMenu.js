@@ -58,7 +58,7 @@ const CustomSidebarMenu = props => {
     <View style={stylesSidebar.sideMenuContainer}>
       <View style={stylesSidebar.profileHeader}>
         <View style={stylesSidebar.profileHeaderPicCircle}>
-          <Text style={{ fontSize: 25, color: '#307ecc' }}>
+          <Text style={{ fontSize: 25, color: '#7f3166' }}>
             {'About React'.charAt(0)}
           </Text>
         </View>
@@ -75,8 +75,8 @@ const CustomSidebarMenu = props => {
               color: 'white',
               backgroundColor:
                 global.currentScreenIndex === item.screenToNavigate
-                  ? '#4b9ff2'
-                  : '#307ecc',
+                  ? '#7f3166'
+                  : '#7f3166',
             }}
             key={key}
             onStartShouldSetResponder={() =>
@@ -96,13 +96,13 @@ const stylesSidebar = StyleSheet.create({
   sideMenuContainer: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#307ecc',
+    backgroundColor: '#7f3166',
     paddingTop: 40,
     color: 'white',
   },
   profileHeader: {
     flexDirection: 'row',
-    backgroundColor: '#307ecc',
+    backgroundColor: '#7f3166',
     padding: 15,
     textAlign: 'center',
   },
