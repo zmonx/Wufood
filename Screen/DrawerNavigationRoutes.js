@@ -48,12 +48,15 @@ const DrawerNavigatorRoutes = createDrawerNavigator(
       screen: FirstActivity_StackNavigator,
       navigationOptions: {
         drawerLabel: 'Home Screen',
+        drawerPosition: 'right'
       },
     },
     SettingsScreen: {
       screen: SecondActivity_StackNavigator,
       navigationOptions: {
         drawerLabel: 'Setting Screen',
+        drawerPosition: 'center'
+
       },
     },
   },
@@ -64,4 +67,9 @@ const DrawerNavigatorRoutes = createDrawerNavigator(
     drawerToggleRoute: 'DrawerToggle',
   }
 );
+
+
+
+
+
 export default DrawerNavigatorRoutes;
