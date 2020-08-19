@@ -12,6 +12,7 @@ import { Text,
   View,
   ScrollView,
   TextInput,
+  ImageBackground,
   TouchableOpacity
 } from 'react-native';
 import Swiper from 'react-native-swiper'  
@@ -56,9 +57,17 @@ var {height, width } = Dimensions.get('window');
     
 
     render() {
+        
       return (
+        <ImageBackground 
+      source={require('D:/Application/WUFood/Image/backhome.png')}
+      style={{flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center"}} 
+      >
+      
         <ScrollView>
-        <View style={{ flex: 1,backgroundColor:"#f2f2f2" }}>
+        <View style={{ flex: 1, }}>
           <View style={{width: width, alignItems:'center'}} >
               <Image style={{height:60,width:width/2,margin:10 }} resizeMode="contain" source={require("D:/Application/WUFood/Image/foodapp2.png")}  />
               <Swiper style={{height:width/2}}  showsButtons={false} autoplay={true} autoplayTimeout={2}>
@@ -93,7 +102,7 @@ var {height, width } = Dimensions.get('window');
         </View>
       </ScrollView>
       
-
+      </ImageBackground>
       
       );
     }
@@ -101,7 +110,7 @@ var {height, width } = Dimensions.get('window');
       return(
         <TouchableOpacity 
         onPress={()=>this.setState({selectCatg:item.id})}
-        style={[styles.divCategorie,{backgroundColor:item.color}]}>
+        style={[styles.divCategorie,{backgroundColor:item.color,}]}>
           <Image
             style={{width:100,height:80}}
             resizeMode="contain"
@@ -175,5 +184,6 @@ var {height, width } = Dimensions.get('window');
       shadowOpacity:0.3,
       shadowRadius:50,
       backgroundColor:'white',
+      
     }
   });

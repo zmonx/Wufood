@@ -15,8 +15,8 @@ const CustomSidebarMenu = props => {
       screenToNavigate: 'HomeScreen',
     },
     {
-      navOptionName: 'Setting Screen',
-      screenToNavigate: 'SettingsScreen',
+      navOptionName: 'location',
+      screenToNavigate: 'location',
     },
     {
       navOptionName: 'Logout',
