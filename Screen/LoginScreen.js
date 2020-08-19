@@ -96,7 +96,7 @@ const LoginScreen = props => {
               <TextInput
                 style={styles.inputStyle}
                 onChangeText={UserEmail => setUserEmail(UserEmail)}
-                underlineColorAndroid="#FFFFFF"
+                // underlineColorAndroid="#FFFFFF"
                 placeholder="Enter Email" //dummy@abc.com
                 placeholderTextColor="#F6F6F7"
                 autoCapitalize="none"
@@ -115,7 +115,7 @@ const LoginScreen = props => {
               <TextInput
                 style={styles.inputStyle}
                 onChangeText={UserPassword => setUserPassword(UserPassword)}
-                underlineColorAndroid="#FFFFFF"
+                // underlineColorAndroid="#FFFFFF"
                 placeholder="Enter Password" //12345
                 placeholderTextColor="#F6F6F7"
                 keyboardType="default"
@@ -187,15 +187,16 @@ const styles = StyleSheet.create({
     color: 'white',
     paddingLeft: 15,
     paddingRight: 15,
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 30,
     borderColor: 'white',
+    fontSize: 16,
   },
   registerTextStyle: {
     color: '#FFFFFF',
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 16,
   },
   errorTextStyle: {
     color: 'red',
