@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "449226420014",
+    "firebase_url": "https://wufc-app.firebaseio.com",
+    "project_id": "wufc-app",
+    "storage_bucket": "wufc-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449226420014:android:4cd3cc2438b2357df054bf",
+        "android_client_info": {
+          "package_name": "com.wufc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "449226420014-u160dn4bbuapl38m8jkl24s96ii890bg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7hBp5eNljLyitEReNZruV6B8BWA9fcsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "449226420014-u160dn4bbuapl38m8jkl24s96ii890bg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
