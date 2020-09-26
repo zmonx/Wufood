@@ -187,3 +187,5 @@ var {height, width } = Dimensions.get('window');
       
     }
   });
+
+
