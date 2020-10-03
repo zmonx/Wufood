@@ -17,15 +17,7 @@ import { Text,
 } from 'react-native';
 import Swiper from 'react-native-swiper'  
 var {height, width } = Dimensions.get('window');
-
-
-
-
- 
-
   export default class FirstPage extends React.Component {
-
-
     constructor(props) {
       super(props);
       this.state = {
@@ -59,8 +51,7 @@ var {height, width } = Dimensions.get('window');
     render() {
         
       return (
-        <ImageBackground 
-      source={require('D:/Application/WUFood/Image/backhome.png')}
+        <ImageBackground source={require('./img/backhome.png')}
       style={{flex: 1,
         resizeMode: "cover",
         justifyContent: "center"}} 
@@ -69,7 +60,7 @@ var {height, width } = Dimensions.get('window');
         <ScrollView>
         <View style={{ flex: 1, }}>
           <View style={{width: width, alignItems:'center'}} >
-              <Image style={{height:60,width:width/2,margin:10 }} resizeMode="contain" source={require("D:/Application/WUFood/Image/foodapp2.png")}  />
+              <Image style={{height:60,width:width/2,margin:10 }} resizeMode="contain" source={require("./img/foodapp2.png")}  />
               <Swiper style={{height:width/2}}  showsButtons={false} autoplay={true} autoplayTimeout={2}>
                 {
                   this.state.dataBanner.map((itemmap)=>{

@@ -9,7 +9,7 @@ export default class SecondPage extends React.Component {
     return (
 
       <ImageBackground 
-      source={require('D:/Application/WUFood/Image/backhome.png')}
+      source={require('./img/backhome.png')}
       style={{flex: 1,
         resizeMode: "cover",
         justifyContent: "center"}} 
