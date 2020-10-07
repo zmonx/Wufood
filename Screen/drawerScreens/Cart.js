@@ -44,9 +44,9 @@ export default class Cart extends Component {
         </Text>
         <View style={{height: 10}} />
 
-        <View style={{backgroundColor: 'transparent', flex: 1}}>
+        <View style={{flex: 1}}>
           <ScrollView>
-            {this.state.dataCart.map((item) => {
+            {this.state.dataCart.map((item, i) => {
               return (
                 <View
                   style={{
@@ -91,7 +91,8 @@ export default class Cart extends Component {
                       </Text>
                       <View
                         style={{flexDirection: 'row', alignItems: 'center'}}>
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                          onPress={() => this.onChangeQual(i, false)}>
                           <Icon
                             name="ios-remove-circle"
                             size={35}
@@ -104,9 +105,10 @@ export default class Cart extends Component {
                             fontWeight: 'bold',
                             fontSize: 18,
                           }}>
-                          5
+                          {item.quantity}
                         </Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                          onPress={() => this.onChangeQual(i, true)}>
                           <Icon
                             name="ios-add-circle"
                             size={35}
@@ -146,5 +148,23 @@ export default class Cart extends Component {
         </View>
       </View>
     );
+  }
+
+  onChangeQual(i, type) {
+    const dataCar = this.state.dataCart;
+    let cantd = dataCar[i].quantity;
+
+    if (type) {
+      cantd = cantd + 1;
+      dataCar[i].quantity = cantd;
+      this.setState({dataCart: dataCar});
+    } else if (type == false && cantd >= 2) {
+      cantd = cantd - 1;
+      dataCar[i].quantity = cantd;
+      this.setState({dataCart: dataCar});
+    } else if (type == false && cantd == 1) {
+      dataCar.splice(i, 1);
+      this.setState({dataCart: dataCar});
+    }
   }
 }
