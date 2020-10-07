@@ -123,18 +123,25 @@ import React from 'react';
 
 //Import Navigators from React Navigation
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import { createStackNavigator } from 'react-navigation-stack'; 
 
 //Import all the screens needed
 import SplashScreen from './Screen/SplashScreen';
 import LoginScreen from './Screen/LoginScreen';
 import RegisterScreen from './Screen/RegisterScreen';
+import HomeScreen from './Screen/drawerScreens/HomeScreen';
 import DrawerNavigationRoutes from './Screen/DrawerNavigationRoutes';
 
 const Auth = createStackNavigator({
   //Stack Navigator for Login and Sign up Screen
   LoginScreen: {
     screen: LoginScreen,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+  HomeScreen: {
+    screen: HomeScreen,
     navigationOptions: {
       headerShown: false,
     },
