@@ -5,19 +5,26 @@
 import React from 'react';
 
 //Import all required component
-import { View, StyleSheet, Text, Alert } from 'react-native';
+import {View, StyleSheet, Text, Alert} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
-const CustomSidebarMenu = props => {
+const CustomSidebarMenu = (props) => {
   let items = [
     {
       navOptionName: 'Home Screen',
       screenToNavigate: 'HomeScreen',
     },
+
     {
       navOptionName: 'location',
       screenToNavigate: 'location',
     },
+
+    {
+      navOptionName: 'Cart',
+      screenToNavigate: 'Cart',
+    },
+
     {
       navOptionName: 'Logout',
       screenToNavigate: 'logout',
@@ -46,7 +53,7 @@ const CustomSidebarMenu = props => {
             },
           },
         ],
-        { cancelable: false }
+        {cancelable: false},
       );
     } else {
       props.navigation.toggleDrawer();
@@ -58,14 +65,14 @@ const CustomSidebarMenu = props => {
     <View style={stylesSidebar.sideMenuContainer}>
       <View style={stylesSidebar.profileHeader}>
         <View style={stylesSidebar.profileHeaderPicCircle}>
-          <Text style={{ fontSize: 25, color: '#7f3166' }}>
+          <Text style={{fontSize: 25, color: '#7f3166'}}>
             {'John Snow'.charAt(0)}
           </Text>
         </View>
         <Text style={stylesSidebar.profileHeaderText}>John Snow</Text>
       </View>
       <View style={stylesSidebar.profileHeaderLine} />
-      <View style={{ width: '100%', flex: 1 }}>
+      <View style={{width: '100%', flex: 1}}>
         {items.map((item, key) => (
           <View
             style={{
@@ -82,7 +89,7 @@ const CustomSidebarMenu = props => {
             onStartShouldSetResponder={() =>
               handleClick(key, item.screenToNavigate)
             }>
-            <Text style={{ fontSize: 15, color: 'white' }}>
+            <Text style={{fontSize: 15, color: 'white'}}>
               {item.navOptionName}
             </Text>
           </View>
