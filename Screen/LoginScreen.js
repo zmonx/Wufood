@@ -32,7 +32,7 @@ export default class LoginScreen extends React.Component {
     const {UserEmail} = this.state;
     const {UserPassword} = this.state;
 
-    fetch('http://172.16.240.197/wufoodapi/login_api.php', {
+    fetch('http://172.16.240.131/wufoodapi/login_api.php', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

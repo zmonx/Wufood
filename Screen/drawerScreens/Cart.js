@@ -1,19 +1,26 @@
-import React, {Component} from 'react';
-import {
-  Text,
-  View,
-  TextInput,
-  Image,
-  StyleSheet,
-  Dimensions,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+// import React, {Component} from 'react';
+// import {
+//   Text,
+//   View,
+//   TextInput,
+//   Image,
+//   StyleSheet,
+//   Dimensions,
+//   TouchableOpacity,
+//   ScrollView,
+// } from 'react-native';
 
-var {width} = Dimensions.get('window');
+// var {width} = Dimensions.get('window');
+// import Icon from 'react-native-vector-icons/Ionicons';
+// import AsyncStorage from '@react-native-community/async-storage';
+
+
+import React, { Component } from 'react';
+import { Text, View, TextInput, Image, TouchableOpacity, StyleSheet, Dimensions,ScrollView } from 'react-native';
+var { width } = Dimensions.get("window")
+// import icons
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
-
 export default class Cart extends Component {
   constructor(props) {
     super(props);
@@ -22,21 +29,72 @@ export default class Cart extends Component {
     };
   }
 
-  componentDidMount() {
-    AsyncStorage.getItem('cart').then((cart) => {
+
+
+  componentDidMount()
+  {
+    AsyncStorage.getItem('cart').then((cart)=>{
       if (cart !== null) {
         // We have data!!
-        const cartfood = JSON.parse(cart);
-        this.setState({dataCart: cartfood});
+        const cartfood = JSON.parse(cart)
+        this.setState({dataCart:cartfood})
       }
-    });
-    // .catch((err) => {
-    //   alert(err);
-    // });
+    })
+    .catch((err)=>{
+      alert(err)
+    })
   }
 
+  onClickAddCart(data){
+
+    const itemcart = {
+      food: data,
+      quantity:  1,
+      price: data.price
+    }
+ 
+    AsyncStorage.getItem('cart').then((datacart)=>{
+        if (datacart !== null) {
+          // We have data!!
+          const cart = JSON.parse(datacart)
+          cart.push(itemcart)
+          AsyncStorage.setItem('cart',JSON.stringify(cart));
+        }
+        else{
+          const cart  = []
+          cart.push(itemcart)
+          AsyncStorage.setItem('cart',JSON.stringify(cart));
+        }
+        alert("Add Cart")
+      })
+      .catch((err)=>{
+        alert(err)
+      })
+  }
+  onChangeQual(i,type)
+  {
+    const dataCar = this.state.dataCart
+    let cantd = dataCar[i].quantity;
+
+    if (type) {
+     cantd = cantd + 1
+     dataCar[i].quantity = cantd
+     this.setState({dataCart:dataCar})
+    }
+    else if (type==false&&cantd>=2){
+     cantd = cantd - 1
+     dataCar[i].quantity = cantd
+     this.setState({dataCart:dataCar})
+    }
+    else if (type==false&&cantd==1){
+     dataCar.splice(i,1)
+     this.setState({dataCart:dataCar})
+    } 
+  }
+ 
   render() {
     return (
+
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <View style={{height: 20}} />
         <Text style={{fontSize: 32, fontWeight: 'bold', color: '#33c37d'}}>
@@ -149,22 +207,5 @@ export default class Cart extends Component {
       </View>
     );
   }
-
-  onChangeQual(i, type) {
-    const dataCar = this.state.dataCart;
-    let cantd = dataCar[i].quantity;
-
-    if (type) {
-      cantd = cantd + 1;
-      dataCar[i].quantity = cantd;
-      this.setState({dataCart: dataCar});
-    } else if (type == false && cantd >= 2) {
-      cantd = cantd - 1;
-      dataCar[i].quantity = cantd;
-      this.setState({dataCart: dataCar});
-    } else if (type == false && cantd == 1) {
-      dataCar.splice(i, 1);
-      this.setState({dataCart: dataCar});
-    }
-  }
 }
+

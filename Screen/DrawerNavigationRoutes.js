@@ -9,15 +9,18 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 
 //Import External Screens
-import HomeScreen from './drawerScreens/HomeScreen';
+// import HomeScreen from './drawerScreens/HomeScreen';
 import location from './drawerScreens/location';
 import CustomSidebarMenu from './Components/CustomSidebarMenu';
 import NavigationDrawerHeader from './Components/NavigationDrawerHeader';
-import Cart from './drawerScreens/Cart';
+// import Cart from './drawerScreens/Cart';
+// import lo from './drawerScreens/location';
+// import HomeScreen from './drawerScreens/HomeScreen';
+import FirstPage from './drawerScreens/FirstPage'
 
 const FirstActivity_StackNavigator = createStackNavigator({
   First: {
-    screen: HomeScreen,
+    screen: FirstPage,
     navigationOptions: ({navigation}) => ({
       title: 'Home Screen',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
@@ -43,19 +46,19 @@ const SecondActivity_StackNavigator = createStackNavigator({
   },
 });
 
-const ThirdActivity_StackNavigator = createStackNavigator({
-  First: {
-    screen: Cart,
-    navigationOptions: ({navigation}) => ({
-      title: 'Cart',
-      headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
-      headerStyle: {
-        backgroundColor: '#7f3166',
-      },
-      headerTintColor: '#fff',
-    }),
-  },
-});
+// const ThirdActivity_StackNavigator = createStackNavigator({
+//   First: {
+//     screen: Cart,
+//     navigationOptions: ({navigation}) => ({
+//       title: 'Cart',
+//       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
+//       headerStyle: {
+//         backgroundColor: '#7f3166',
+//       },
+//       headerTintColor: '#fff',
+//     }),
+//   },
+// });
 
 const DrawerNavigatorRoutes = createDrawerNavigator(
   {
@@ -73,12 +76,12 @@ const DrawerNavigatorRoutes = createDrawerNavigator(
       },
     },
 
-    Cart: {
-      screen: ThirdActivity_StackNavigator,
-      navigationOptions: {
-        drawerLabel: 'Cart',
-      },
-    },
+    // Cart: {
+    //   screen: ThirdActivity_StackNavigator,
+    //   navigationOptions: {
+    //     drawerLabel: 'Cart',
+    //   },
+    // },
   },
   {
     contentComponent: CustomSidebarMenu,

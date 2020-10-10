@@ -129,7 +129,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import SplashScreen from './Screen/SplashScreen';
 import LoginScreen from './Screen/LoginScreen';
 import RegisterScreen from './Screen/RegisterScreen';
-import HomeScreen from './Screen/drawerScreens/HomeScreen';
+import FirstPage from './Screen/drawerScreens/FirstPage';
 import DrawerNavigationRoutes from './Screen/DrawerNavigationRoutes';
 
 const Auth = createStackNavigator({
@@ -140,8 +140,8 @@ const Auth = createStackNavigator({
       headerShown: false,
     },
   },
-  HomeScreen: {
-    screen: HomeScreen,
+  FirstPage: {
+    screen: FirstPage,
     navigationOptions: {
       headerShown: false,
     },
