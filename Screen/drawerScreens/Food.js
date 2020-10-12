@@ -95,15 +95,22 @@ export default class Food extends React.Component {
                 showsButtons={false}
                 autoplay={true}
                 autoplayTimeout={2}>
-                {this.state.dataBanner.map((itemmap) => {
-                  return (
+               
                     <Image
                       style={styles.imageBanner}
                       resizeMode="contain"
-                      source={{uri: itemmap}}
+                      source={require('./img/b1.jpg')}
                     />
-                  );
-                })}
+                    <Image
+                      style={styles.imageBanner}
+                      resizeMode="contain"
+                      source={require('./img/b2.jpg')}
+                    />
+                    <Image
+                      style={styles.imageBanner}
+                      resizeMode="contain"
+                      source={require('./img/b3.jpg')}
+                    />
               </Swiper>
               <View style={{height: 20}} />
             </View>
