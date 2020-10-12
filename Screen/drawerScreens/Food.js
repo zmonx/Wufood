@@ -94,7 +94,7 @@ export default class Food extends React.Component {
                 style={{height: width / 2}}
                 showsButtons={false}
                 autoplay={true}
-                autoplayTimeout={2}>
+                autoplayTimeout={3}>
                
                     <Image
                       style={styles.imageBanner}
@@ -109,7 +109,17 @@ export default class Food extends React.Component {
                     <Image
                       style={styles.imageBanner}
                       resizeMode="contain"
-                      source={require('./img/b3.jpg')}
+                      source={require('./img/b5.jpg')}
+                    />
+                     <Image
+                      style={styles.imageBanner}
+                      resizeMode="contain"
+                      source={require('./img/b4.jpg')}
+                    />
+                    <Image
+                      style={styles.imageBanner}
+                      resizeMode="contain"
+                      source={require('./img/b6.jpg')}
                     />
               </Swiper>
               <View style={{height: 20}} />
