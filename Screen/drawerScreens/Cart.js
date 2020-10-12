@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, Image, TouchableOpacity, StyleSheet, Dimensions,ScrollView } from 'react-native';
+import { Text, View, TextInput, Image, TouchableOpacity, ImageBackground, Dimensions,ScrollView } from 'react-native';
 var { width } = Dimensions.get("window")
 // import icons
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -77,10 +77,12 @@ export default class Cart extends Component {
  
   render() {
     return (
-
+      <ImageBackground
+      source={require('./img/backhome2.png')}
+      style={{flex: 1, resizeMode: 'cover', justifyContent: 'center'}}>
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <View style={{height: 20}} />
-        <Text style={{fontSize: 32, fontWeight: 'bold', color: '#33c37d'}}>
+        <Text style={{fontSize: 32, fontWeight: 'bold', color: '#000'}}>
           Cart food
         </Text>
         <View style={{height: 10}} />
@@ -125,7 +127,7 @@ export default class Cart extends Component {
                       <Text
                         style={{
                           fontWeight: 'bold',
-                          color: '#33c37d',
+                          color: '#000',
                           fontSize: 20,
                         }}>
                         ${item.price * item.quantity}
@@ -137,7 +139,7 @@ export default class Cart extends Component {
                           <Icon
                             name="ios-remove-circle"
                             size={35}
-                            color={'#33c37d'}
+                            color={'#7f3166'}
                           />
                         </TouchableOpacity>
                         <Text
@@ -153,7 +155,7 @@ export default class Cart extends Component {
                           <Icon
                             name="ios-add-circle"
                             size={35}
-                            color={'#33c37d'}
+                            color={'#7f3166'}
                           />
                         </TouchableOpacity>
                       </View>
@@ -167,7 +169,7 @@ export default class Cart extends Component {
 
             <TouchableOpacity
               style={{
-                backgroundColor: '#33c37d',
+                backgroundColor: '#7f3166',
                 width: width - 40,
                 alignItems: 'center',
                 padding: 10,
@@ -188,6 +190,7 @@ export default class Cart extends Component {
           </ScrollView>
         </View>
       </View>
+      </ImageBackground>
     );
   }
 }

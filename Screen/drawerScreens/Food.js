@@ -85,11 +85,15 @@ export default class Food extends React.Component {
         <ScrollView>
           <View style={{flex: 1}}>
             <View style={{width: width, alignItems: 'center'}}>
+            <Text>  </Text>
+
               <Image
                 style={{height: 60, width: width / 2, margin: 10}}
                 resizeMode="contain"
                 source={require('./img/foodapp2.png')}
               />
+              <Text>  </Text>
+
               <Swiper
                 style={{height: width / 2}}
                 showsButtons={false}
@@ -122,6 +126,8 @@ export default class Food extends React.Component {
                       source={require('./img/b6.jpg')}
                     />
               </Swiper>
+              <Text>  </Text>
+
               <View style={{height: 20}} />
             </View>
             <View
@@ -129,11 +135,16 @@ export default class Food extends React.Component {
                 width: width,
                 borderRadius: 20,
                 paddingVertical: 20,
-                backgroundColor: 'white',
+                backgroundColor: 'rgba(255, 255, 255, 0.4)',
               }}>
-              <Text style={styles.titleCatg}>
+              {/* <Text style={styles.titleCatg}>
                 Categories {this.state.selectCatg}
-              </Text>
+              </Text> */}
+              {/* <Text  style={{ borderBottomColor: 'white',  borderBottomWidth: 2, }}>  </Text> */}
+              <Text>  </Text>
+              <Text style={styles.titleCatg}>MENU</Text>
+              <Text>  </Text>
+
               <FlatList
                 horizontal={true}
                 data={this.state.dataCategories}
@@ -196,7 +207,7 @@ export default class Food extends React.Component {
             onPress={()=>this.onClickAddCart(item)}
             style={{
               width:(width/2)-40,
-              backgroundColor:'#33c37d',
+              backgroundColor:'#7f3166',
               flexDirection:'row',
               alignItems:'center',
               justifyContent:"center",
@@ -221,6 +232,7 @@ const styles = StyleSheet.create({
     height: width / 2,
     width: width - 40,
     borderRadius: 10,
+    
     marginHorizontal: 20,
   },
   divCategorie: {
@@ -229,12 +241,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     padding: 10,
+
   },
   titleCatg: {
     fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 10,
+    // color: 'white',
+
   },
   imageFood: {
     width: width / 2 - 20 - 10,

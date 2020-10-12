@@ -22,7 +22,7 @@ const FirstActivity_StackNavigator = createStackNavigator({
   First: {
     screen: FirstPage,
     navigationOptions: ({navigation}) => ({
-      title: 'Home Screen',
+      title: 'WU FOOD CENTER',
       headerLeft: () => <NavigationDrawerHeader navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#7f3166',

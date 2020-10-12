@@ -8,7 +8,7 @@ import Cart from './Cart'
 import Address from './Address'
 import Profile from './Profile'
 // unable console yellow
-console.disableYellowBox = true;
+// console.disableYellowBox = true;
 // import icons
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -41,7 +41,7 @@ export default class FirstPage extends Component {
            </TouchableOpacity>
            <TouchableOpacity style={styles.itemTab} onPress={()=>this.setState({module:3})}>
              <Icon name="md-map" size={30} color={this.state.module==3?"#900":"gray"} />
-             <Text>Address</Text>
+             <Text>Profile</Text>
            </TouchableOpacity>
            {/* <TouchableOpacity style={styles.itemTab} onPress={()=>this.setState({module:4})}>
              <Icon name="md-contact" size={30} color={this.state.module==4?"#900":"gray"} />
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   bottomTab:{
     height:60,
     width:width,
-    backgroundColor:'orange',
+    backgroundColor:'white',
     flexDirection:'row',
     justifyContent:'space-between',
     elevation:8,

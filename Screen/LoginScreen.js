@@ -23,6 +23,7 @@ export default class LoginScreen extends React.Component {
     super(props);
 
     this.state = {
+      data:[],
       UserEmail: '',
       UserPassword: '',
     };
@@ -32,7 +33,7 @@ export default class LoginScreen extends React.Component {
     const {UserEmail} = this.state;
     const {UserPassword} = this.state;
 
-    fetch('http://10.227.184.12/wufoodapi/login_api.php', {
+    fetch('http://172.16.28.188/wufoodapi/login_api.php', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -46,10 +47,13 @@ export default class LoginScreen extends React.Component {
     })
       .then((response) => response.json())
       .then((responseJson) => {
+       this.setState({data: responseJson})
+
         // If server response message same as Data Matched
         if (responseJson === 'Data Matched') {
           //Then open Profile activity and send user email to profile activity.
           this.props.navigation.navigate('DrawerNavigationRoutes');
+        
           // props.navigation.navigate('DrawerNavigationRoutes');
         } else {
           Alert.alert(responseJson);
@@ -114,7 +118,6 @@ export default class LoginScreen extends React.Component {
                   onPress={this.UserLoginFunction}>
                   <Text style={styles.buttonTextStyle}>LOGIN</Text>
                 </TouchableOpacity>
-
                 <Text
                   style={styles.registerTextStyle}
                   onPress={() =>
