@@ -9,11 +9,11 @@ export default class Profile extends Component {
        data:"",
      };
   }
-
+  
   render() {
     return (
       <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
-         <Text>Profile</Text>
+         <Text>Address</Text>
       </View>
     );
   }

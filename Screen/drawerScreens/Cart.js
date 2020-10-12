@@ -1,20 +1,3 @@
-// import React, {Component} from 'react';
-// import {
-//   Text,
-//   View,
-//   TextInput,
-//   Image,
-//   StyleSheet,
-//   Dimensions,
-//   TouchableOpacity,
-//   ScrollView,
-// } from 'react-native';
-
-// var {width} = Dimensions.get('window');
-// import Icon from 'react-native-vector-icons/Ionicons';
-// import AsyncStorage from '@react-native-community/async-storage';
-
-
 import React, { Component } from 'react';
 import { Text, View, TextInput, Image, TouchableOpacity, StyleSheet, Dimensions,ScrollView } from 'react-native';
 var { width } = Dimensions.get("window")
