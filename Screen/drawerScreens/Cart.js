@@ -168,6 +168,8 @@ export default class Cart extends Component {
             <View style={{height: 20}} />
 
             <TouchableOpacity
+                // onPress={alert("CheckOut Done")}
+          
               style={{
                 backgroundColor: '#7f3166',
                 width: width - 40,
@@ -176,12 +178,14 @@ export default class Cart extends Component {
                 borderRadius: 5,
                 margin: 20,
               }}>
+                
               <Text
                 style={{
                   fontSize: 24,
                   fontWeight: 'bold',
                   color: 'white',
                 }}>
+
                 CHECKOUT
               </Text>
             </TouchableOpacity>

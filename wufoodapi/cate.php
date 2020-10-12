@@ -9,7 +9,7 @@ if ($conn->connect_error) {
 }
 
 
-$sql = "SELECT categoriesID,categoriesName,categoriesColor,categoriesImage,foodID,foodName,foodPrice,foodImage FROM categories cat join food f on cat.categoriesID = f.categorie;"; 
+$sql = "SELECT * FROM categories"; 
 $result = $conn ->query($sql);
 
 if ($result->num_rows>0) {

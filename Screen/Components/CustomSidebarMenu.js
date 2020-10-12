@@ -11,7 +11,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 const CustomSidebarMenu = (props) => {
   let items = [
     {
-      navOptionName: 'Home Screen',
+      navOptionName: 'Home ',
       screenToNavigate: 'HomeScreen',
     },
 
@@ -20,10 +20,10 @@ const CustomSidebarMenu = (props) => {
       screenToNavigate: 'location',
     },
 
-    {
-      navOptionName: 'Cart',
-      screenToNavigate: 'Cart',
-    },
+    // {
+    //   navOptionName: 'Cart',
+    //   screenToNavigate: 'Cart',
+    // },
 
     {
       navOptionName: 'Logout',
@@ -66,10 +66,10 @@ const CustomSidebarMenu = (props) => {
       <View style={stylesSidebar.profileHeader}>
         <View style={stylesSidebar.profileHeaderPicCircle}>
           <Text style={{fontSize: 25, color: '#7f3166'}}>
-            {'John Snow'.charAt(0)}
+            {'Chumporn Kaewpitak'.charAt(0)}
           </Text>
         </View>
-        <Text style={stylesSidebar.profileHeaderText}>John Snow</Text>
+        <Text style={stylesSidebar.profileHeaderText}>Chumporn Kaewpitak</Text>
       </View>
       <View style={stylesSidebar.profileHeaderLine} />
       <View style={{width: '100%', flex: 1}}>
