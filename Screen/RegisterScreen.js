@@ -304,7 +304,7 @@ class RegisterScreen extends Component {
     };
   }
   UserRegistrationFunction = () => {
-    fetch('http://172.16.28.188/wufoodapi/register_api.php', {
+    fetch('http://192.168.43.45/wufood/wufoodapi/register_api.php', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

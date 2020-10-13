@@ -34,7 +34,7 @@ export default class StaffScreen extends Component {
     };
  }
  componentDidMount = () => {
-  fetch('http://172.16.28.188/WUfood/wufoodapi/select_api.php',{
+  fetch('http://192.168.43.45/WUfood/wufoodapi/select_api.php',{
      method: 'GET'
   })
   .then((response) => response.json())
