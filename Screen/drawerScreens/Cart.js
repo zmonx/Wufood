@@ -98,6 +98,7 @@ export default class Cart extends Component {
     } else if (type == false && cantd == 1) {
       dataCar.splice(i, 1);
       this.setState({dataCart: dataCar});
+      AsyncStorage.setItem('cart', JSON.stringify(dataCar));
     }
   }
 
