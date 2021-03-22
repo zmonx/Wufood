@@ -81,10 +81,20 @@ export default class Cart extends Component {
       cantd = cantd + 1;
       dataCar[i].quantity = cantd;
       this.setState({dataCart: dataCar});
+      this.state.dataCart.map((item, i) => {
+        this.setState({
+          total: this.state.total + item.price,
+        });
+      });
     } else if (type == false && cantd >= 2) {
       cantd = cantd - 1;
       dataCar[i].quantity = cantd;
       this.setState({dataCart: dataCar});
+      this.state.dataCart.map((item, i) => {
+        this.setState({
+          total: this.state.total - item.price,
+        });
+      });
     } else if (type == false && cantd == 1) {
       dataCar.splice(i, 1);
       this.setState({dataCart: dataCar});
@@ -195,13 +205,14 @@ export default class Cart extends Component {
                   }}>
                   <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                      <Text style={styles.modalText}>Hello World!</Text>
-                      <Text>{this.state.total}</Text>
+                      <Text style={styles.modalText}>
+                        ราคารวมทั้งหมด = {this.state.total} บาท
+                      </Text>
 
                       <Pressable
                         style={[styles.button, styles.buttonClose]}
                         onPress={() => this.setModalVisible(!modalVisible)}>
-                        <Text style={styles.textStyle}>Hide Modal</Text>
+                        <Text style={styles.textStyle}>OK</Text>
                       </Pressable>
                     </View>
                   </View>
@@ -267,6 +278,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
+    justifyContent: 'flex-end',
   },
   modalText: {
     marginBottom: 15,
