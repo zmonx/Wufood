@@ -50,31 +50,30 @@ export default class Food extends React.Component {
       });
   }
 
-  onClickAddCart(data){
-
+  onClickAddCart(data) {
     const itemcart = {
       food: data,
-      quantity:  1,
-      price: data.price
-    }
- 
-    AsyncStorage.getItem('cart').then((datacart)=>{
+      quantity: 1,
+      price: data.price,
+    };
+
+    AsyncStorage.getItem('cart')
+      .then((datacart) => {
         if (datacart !== null) {
           // We have data!!
-          const cart = JSON.parse(datacart)
-          cart.push(itemcart)
-          AsyncStorage.setItem('cart',JSON.stringify(cart));
+          const cart = JSON.parse(datacart);
+          cart.push(itemcart);
+          AsyncStorage.setItem('cart', JSON.stringify(cart));
+        } else {
+          const cart = [];
+          cart.push(itemcart);
+          AsyncStorage.setItem('cart', JSON.stringify(cart));
         }
-        else{
-          const cart  = []
-          cart.push(itemcart)
-          AsyncStorage.setItem('cart',JSON.stringify(cart));
-        }
-        alert("Add Cart")
+        alert('Add Cart');
       })
-      .catch((err)=>{
-        alert(err)
-      })
+      .catch((err) => {
+        alert(err);
+      });
   }
 
   render() {
@@ -85,48 +84,47 @@ export default class Food extends React.Component {
         <ScrollView>
           <View style={{flex: 1}}>
             <View style={{width: width, alignItems: 'center'}}>
-            <Text>  </Text>
+              <Text> </Text>
 
               <Image
                 style={{height: 60, width: width / 2, margin: 10}}
                 resizeMode="contain"
                 source={require('./img/foodapp2.png')}
               />
-              <Text>  </Text>
+              <Text> </Text>
 
               <Swiper
                 style={{height: width / 2}}
                 showsButtons={false}
                 autoplay={true}
                 autoplayTimeout={3}>
-               
-                    <Image
-                      style={styles.imageBanner}
-                      resizeMode="contain"
-                      source={require('./img/b1.jpg')}
-                    />
-                    <Image
-                      style={styles.imageBanner}
-                      resizeMode="contain"
-                      source={require('./img/b2.jpg')}
-                    />
-                    <Image
-                      style={styles.imageBanner}
-                      resizeMode="contain"
-                      source={require('./img/b5.jpg')}
-                    />
-                     <Image
-                      style={styles.imageBanner}
-                      resizeMode="contain"
-                      source={require('./img/b4.jpg')}
-                    />
-                    <Image
-                      style={styles.imageBanner}
-                      resizeMode="contain"
-                      source={require('./img/b6.jpg')}
-                    />
+                <Image
+                  style={styles.imageBanner}
+                  resizeMode="contain"
+                  source={require('./img/b1.jpg')}
+                />
+                <Image
+                  style={styles.imageBanner}
+                  resizeMode="contain"
+                  source={require('./img/b2.jpg')}
+                />
+                <Image
+                  style={styles.imageBanner}
+                  resizeMode="contain"
+                  source={require('./img/b5.jpg')}
+                />
+                <Image
+                  style={styles.imageBanner}
+                  resizeMode="contain"
+                  source={require('./img/b4.jpg')}
+                />
+                <Image
+                  style={styles.imageBanner}
+                  resizeMode="contain"
+                  source={require('./img/b6.jpg')}
+                />
               </Swiper>
-              <Text>  </Text>
+              <Text> </Text>
 
               <View style={{height: 20}} />
             </View>
@@ -141,9 +139,9 @@ export default class Food extends React.Component {
                 Categories {this.state.selectCatg}
               </Text> */}
               {/* <Text  style={{ borderBottomColor: 'white',  borderBottomWidth: 2, }}>  </Text> */}
-              <Text>  </Text>
+              <Text> </Text>
               <Text style={styles.titleCatg}>MENU</Text>
-              <Text>  </Text>
+              <Text> </Text>
 
               <FlatList
                 horizontal={true}
@@ -178,7 +176,6 @@ export default class Food extends React.Component {
         <Text style={{fontWeight: 'bold', fontSize: 22}}>{item.name}</Text>
       </TouchableOpacity>
     );
-  
   }
   _renderItemFood(item) {
     let catg = this.state.selectCatg;
@@ -204,35 +201,34 @@ export default class Food extends React.Component {
           <Text style={{fontSize: 20, color: 'green'}}>${item.price}</Text>
 
           <TouchableOpacity
-            onPress={()=>this.onClickAddCart(item)}
+            onPress={() => this.onClickAddCart(item)}
             style={{
-              width:(width/2)-40,
-              backgroundColor:'#7f3166',
-              flexDirection:'row',
-              alignItems:'center',
-              justifyContent:"center",
-              borderRadius:5,
-              padding:4
+              width: width / 2 - 40,
+              backgroundColor: '#7f3166',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: 5,
+              padding: 4,
             }}>
-            <Text style={{fontSize:18, color:"white", fontWeight:"bold"}}>Add Cart</Text>
-            <View style={{width:10}} />
-            <Icon name="ios-add-circle" size={30} color={"white"} />
+            <Text style={{fontSize: 18, color: 'white', fontWeight: 'bold'}}>
+              Add Cart
+            </Text>
+            <View style={{width: 10}} />
+            <Icon name="ios-add-circle" size={30} color={'white'} />
           </TouchableOpacity>
         </TouchableOpacity>
       );
     }
   }
-
-
-  }
-
+}
 
 const styles = StyleSheet.create({
   imageBanner: {
     height: width / 2,
     width: width - 40,
     borderRadius: 10,
-    
+
     marginHorizontal: 20,
   },
   divCategorie: {
@@ -241,7 +237,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     padding: 10,
-
   },
   titleCatg: {
     fontSize: 30,
@@ -249,7 +244,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 10,
     // color: 'white',
-
   },
   imageFood: {
     width: width / 2 - 20 - 10,

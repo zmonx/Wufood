@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   Text,
   View,
@@ -12,7 +12,7 @@ import {
   StyleSheet,
   Modal,
 } from 'react-native';
-var { width } = Dimensions.get('window');
+var {width} = Dimensions.get('window');
 // import icons
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -27,7 +27,7 @@ export default class Cart extends Component {
   }
 
   setModalVisible = (visible) => {
-    this.setState({ modalVisible: visible });
+    this.setState({modalVisible: visible});
   };
   componentDidMount() {
     AsyncStorage.getItem('cart')
@@ -35,7 +35,7 @@ export default class Cart extends Component {
         if (cart !== null) {
           // We have data!!
           const cartfood = JSON.parse(cart);
-          this.setState({ dataCart: cartfood });
+          this.setState({dataCart: cartfood});
           this.state.dataCart.map((item, i) => {
             this.setState({
               total: this.state.total + item.price * item.quantity,
@@ -80,7 +80,7 @@ export default class Cart extends Component {
     if (type) {
       cantd = cantd + 1;
       dataCar[i].quantity = cantd;
-      this.setState({ dataCart: dataCar });
+      this.setState({dataCart: dataCar});
       this.state.dataCart.map((item, i) => {
         this.setState({
           total: this.state.total + item.price,
@@ -89,7 +89,7 @@ export default class Cart extends Component {
     } else if (type == false && cantd >= 2) {
       cantd = cantd - 1;
       dataCar[i].quantity = cantd;
-      this.setState({ dataCart: dataCar });
+      this.setState({dataCart: dataCar});
       this.state.dataCart.map((item, i) => {
         this.setState({
           total: this.state.total - item.price,
@@ -97,25 +97,30 @@ export default class Cart extends Component {
       });
     } else if (type == false && cantd == 1) {
       dataCar.splice(i, 1);
-      this.setState({ dataCart: dataCar });
-      AsyncStorage.setItem('cart', JSON.stringify(dataCar));
+      this.setState({dataCart: dataCar});
+      this.state.dataCart.map((item, i) => {
+        this.setState({
+          total: this.state.total - item.price,
+        });
+      });
     }
+    AsyncStorage.setItem('cart', JSON.stringify(dataCar));
   }
 
   render() {
-    const { modalVisible, total } = this.state;
+    const {modalVisible, total} = this.state;
     return (
       <ImageBackground
         source={require('./img/backhome2.png')}
-        style={{ flex: 1, resizeMode: 'cover', justifyContent: 'center' }}>
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <View style={{ height: 20 }} />
-          <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#000' }}>
+        style={{flex: 1, resizeMode: 'cover', justifyContent: 'center'}}>
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+          <View style={{height: 20}} />
+          <Text style={{fontSize: 32, fontWeight: 'bold', color: '#000'}}>
             Cart food
           </Text>
-          <View style={{ height: 10 }} />
+          <View style={{height: 10}} />
 
-          <View style={{ flex: 1 }}>
+          <View style={{flex: 1}}>
             <ScrollView>
               {this.state.dataCart.map((item, i) => {
                 return (
@@ -131,8 +136,8 @@ export default class Cart extends Component {
                     }}>
                     <Image
                       resizeMode={'contain'}
-                      style={{ width: width / 3, height: width / 3 }}
-                      source={{ uri: item.food.image }}
+                      style={{width: width / 3, height: width / 3}}
+                      source={{uri: item.food.image}}
                     />
                     <View
                       style={{
@@ -142,7 +147,7 @@ export default class Cart extends Component {
                         justifyContent: 'space-between',
                       }}>
                       <View>
-                        <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
+                        <Text style={{fontWeight: 'bold', fontSize: 20}}>
                           {item.food.name}
                         </Text>
                         <Text>Lorem Ipsum de food</Text>
@@ -161,7 +166,7 @@ export default class Cart extends Component {
                           ${item.price * item.quantity}
                         </Text>
                         <View
-                          style={{ flexDirection: 'row', alignItems: 'center' }}>
+                          style={{flexDirection: 'row', alignItems: 'center'}}>
                           <TouchableOpacity
                             onPress={() => this.onChangeQual(i, false)}>
                             <Icon
@@ -193,39 +198,47 @@ export default class Cart extends Component {
                 );
               })}
 
-              <View style={{ height: 20 }} />
+              <View style={{height: 20}} />
 
               <View>
-
-                <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={() => {
-                  Alert.alert('Modal has been closed.');
-                  this.setModalVisible(!modalVisible);
-                }}>
+                <Modal
+                  animationType="slide"
+                  transparent={true}
+                  visible={modalVisible}
+                  onRequestClose={() => {
+                    Alert.alert('Modal has been closed.');
+                    this.setModalVisible(!modalVisible);
+                  }}>
                   <View style={styles.centeredView}>
-
                     <View style={styles.modalView}>
-                      <Text style={styles.modalTextTopic}>
-                        YOUR ORDERS
-                      </Text>
-
-
-
+                      <Image
+                        resizeMode={'contain'}
+                        style={{width: width / 3, height: width / 3}}
+                        source={{
+                          uri:
+                            'https://assets9.lottiefiles.com/packages/lf20_7foh1e6l.json',
+                        }}
+                      />
                       <Text style={styles.modalText}>
-                        ราคารวมทั้งหมด
+                        ราคารวมทั้งหมด = {this.state.total} บาท
                       </Text>
+
+                      <Text style={styles.modalText}>ราคารวมทั้งหมด</Text>
                       <Text style={styles.modalTextPrice}>
-                        {this.state.total} 
+                        {this.state.total}
                       </Text>
-                      <Text style={styles.modalText}>
-                        บาท
-                      </Text>
+                      <Text style={styles.modalText}>บาท</Text>
                       <Pressable
-                        style={[styles.button, styles.buttonOK , styles.TextBtn]}
+                        style={[styles.button, styles.buttonOK, styles.TextBtn]}
                         onPress={() => this.setModalVisible(!modalVisible)}>
                         <Text style={styles.textStyle}>OK</Text>
                       </Pressable>
                       <Pressable
-                        style={[styles.button, styles.buttonCancel , styles.TextBtn]}
+                        style={[
+                          styles.button,
+                          styles.buttonCancel,
+                          styles.TextBtn,
+                        ]}
                         onPress={() => this.setModalVisible(!modalVisible)}>
                         <Text style={styles.textStyle}>Cancel</Text>
                       </Pressable>
@@ -248,11 +261,11 @@ export default class Cart extends Component {
                 </Pressable>
               </View>
 
-              <View style={{ height: 20 }} />
+              <View style={{height: 20}} />
             </ScrollView>
           </View>
         </View>
-      </ImageBackground >
+      </ImageBackground>
     );
   }
 }
@@ -267,7 +280,6 @@ const styles = StyleSheet.create({
     width: 500,
     height: 500,
     alignItems: 'center',
-
   },
   modalView: {
     opacity: 0.95,
@@ -314,26 +326,26 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: 'center',
     fontSize: 25,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   TextBtn: {
-    marginTop:20,
+    marginTop: 20,
     textAlign: 'center',
     fontSize: 25,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   modalTextPrice: {
     marginBottom: 15,
     textAlign: 'center',
     fontSize: 50,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   modalTextTopic: {
     marginBottom: 30,
     marginTop: 15,
     textAlign: 'center',
     fontSize: 35,
-    fontWeight: "bold",
-    color: '#7f3166'
+    fontWeight: 'bold',
+    color: '#7f3166',
   },
 });
